@@ -1,0 +1,27 @@
+It starts by creating an initial population of binary strings, where each string has a length of STRING_LENGTH and consists of randomly generated 0s and 1s. The size of the population is determined by POPULATION_SIZE.
+
+The fitness of each string in the population is calculated using the fitness function, which simply sums up all the elements in the string.
+
+The population undergoes selection of parents for mating. Parents are selected with a probability proportional to their fitness. This is done using random.choices() with the weights parameter set to the fitness values of the strings.
+
+Selected parents undergo crossover to produce offspring. The crossover point is randomly chosen, and two children are created by swapping the tails of the parents' strings.
+
+After crossover, each element in the offspring strings undergoes mutation with a probability defined by MUTATION_RATE. Mutation flips a bit in the string, changing a 0 to 1 or vice versa.
+
+The new population is formed by combining the mutated offspring, and the process continues for a predefined number of generations.
+
+Throughout the generations, the average fitness of each population is calculated and stored in the list average_fitnesses.
+
+The average fitness across generations is plotted using Matplotlib.
+
+
+1.2
+In this code, the fitness function calculates how many elements in the binary string match the elements in the target string. The goal is to evolve the population towards having as many 1s as possible in each string.
+
+
+It includes a TARGET_STRING which serves as the reference for the fitness function. It aims to guide the optimization process towards generating strings that match this target.
+
+1.3
+The fitness function first counts the number of ones in the binary string. If there are no ones, it returns a fitness value of twice the length of the string. This penalizes strings with no ones. Otherwise, it returns the count of ones as the fitness value.
+
+
